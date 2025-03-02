@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>getBUS – Real-Time Bus Tracking & Offline Routes</title>
     <meta name="description" content="Custom transport tracking solutions with real-time tracking, route optimization, and smart mobility features. Contact getBUS for your business needs.">
-    <meta name="keywords" content="transport tracking, bus tracking, public transport, smart mobility, batumi, georgia, bus tracking, public transport, live bus map, city routes, realtime, online, monitoring">
+    <meta name="keywords" content="transport tracking, bus tracking, public transport, smart mobility, batumi, georgia, bus tracking, public transport, live bus map, city routes, realtime, online, monitoring, online transport batumi">
     <meta name="author" content="Gennady Dmitrik">
 
     <style>
@@ -53,18 +53,26 @@
         }
 
         .container {
-            position: relative;
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 20px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 70px;
+            padding: 16px;
+            width: 50%;
+            margin: 10px auto;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out;
+
+            /* Enable scrolling */
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .container:hover {
-            transform: scale(1.02);
+            transform: translateX(-50%) scale(1.02);
         }
 
         .logo {
@@ -79,7 +87,7 @@
         }
 
         .qr-code {
-            width: 150px;
+            width: 200px;
             margin: 20px auto;
             transition: transform 0.2s;
         }
@@ -114,7 +122,7 @@
         .footer {
             width: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 15px 0;
+            padding: 5px 0;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -132,6 +140,10 @@
 
         /* Mobile-friendly */
         @media (max-width: 600px) {
+            .container {
+                top: 10px;
+                width: 80%;
+            }
             .buttons {
                 flex-direction: column;
                 gap: 10px;
@@ -159,7 +171,7 @@
             <a href="https://apps.apple.com/app/id6736360762" class="store-btn" target="_blank">
                 <img src="images/appStore.png" alt="Download on the App Store">
             </a>
-            <a href="https://play.google.com/store/apps/details?id=world.newdigital.getBUS" class="store-btn" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=world.newdigital.getbus" class="store-btn" target="_blank">
                 <img src="images/googlePlay.png" alt="Get it on Google Play">
             </a>
         </div>
@@ -210,5 +222,29 @@
         // Set initial background
         // changeBackground();
     </script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDudUYUos6c09IWMQ__azKnohVvH1mBRP0",
+      authDomain: "getbus-badc7.firebaseapp.com",
+      projectId: "getbus-badc7",
+      storageBucket: "getbus-badc7.firebasestorage.app",
+      messagingSenderId: "920025302130",
+      appId: "1:920025302130:web:8260eed578391a1d1a2eeb",
+      measurementId: "G-KJGJ38FZPW"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
